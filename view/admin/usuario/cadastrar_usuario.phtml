@@ -1,0 +1,103 @@
+<div class="">
+<!--    <section class="content ">  register-box-->
+<div class="row">
+   
+         <div >
+        <div class="box-header with-border">
+          <h3 class="box-title">Cadastro Usuario</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+           <form role="form" action="salvarCadastro" method="POST" enctype="multipart/form-data">
+          <div class="box-body">
+
+              <div class="form-group has-feedback col-sm-6">
+                  <label for="exampleInputEmail1">Nome Completo</label>
+            <input type="text" class="form-control" name="nome" value="<?php echo isset($view_dados->nome) ? $view_dados->nome :''; ?>" placeholder="Nome usuario" required>
+             <span class="glyphicon glyphicon-user form-control-feedback"></span>
+              </div>
+             <div class="form-group has-feedback col-sm-6">
+              <label for="exampleInputEmail1">Apelido </label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="apelido" value="<?php echo isset($view_dados->apelido) ? $view_dados->apelido :''; ?>"placeholder="apelido" required>
+              <span class="glyphicon glyphicon-user form-control-feedback"></span>
+              </div>
+              
+              <div class="form-group has-feedback col-sm-6">
+                   <label for="exampleInputEmail1">Telefone</label>
+        <input type="text" class="form-control" name="telefone" value="<?php echo isset($view_dados->telefone) ? $view_dados->telefone :''; ?>"placeholder="Telefone" required>
+         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+             </div>
+         <div class="form-group has-feedback col-sm-6">
+             <label for="exampleInputName">Numero de Estudante</label>
+             
+        <input type="text" class="form-control"  name="numeroEstudante" value="<?php echo isset($view_dados->numeroEstudante) ? $view_dados->numeroEstudante:''; ?>"placeholder="Numero de Estudante" required>
+                <span class="glyphicon glyphicon-road form-control-feedback"></span>
+             </div>
+           
+            <div class="form-group has-feedback col-sm-6">
+                <label for="exampleInputName">Categoria</label>
+                <select name="nivel" autofocus="" class="form-control">
+                 
+                       <?php if(count($view_dados->nivel) > 0){?>
+                     <option value="1"<?php if ($view_dados->nivel == "1"){ echo "selected"; } ?> >Estudante</option>
+                    
+                         
+                     <option value="2"<?php if ($view_dados->nivel == "2") echo "selected"; ?>>Docente</option>
+                     <option value="3"<?php if ($view_dados->nivel == "3") echo "selected"; ?>>Admin</option>
+                     
+                       <?php }else{ ?>
+                     <option value="1">Estudante</option>     
+                     <option value="2">Docente</option>    
+                       <option value="3">Administrador</option>  
+                      <?php } ?>
+                </select>
+            
+       <span class="glyphicon glyphicon-choice form-control-feedback"></span>
+      </div>
+           <div class="form-group has-feedback col-sm-6">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email"value="<?php echo isset($view_dados->email) ? $view_dados->email:''; ?>" placeholder="Email" required>
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+   </div>
+              <div class="form-group has-feedback col-sm-6">
+                  <label for="exampleInputEmail1">Senha</label>
+          <input type="password" class="form-control" name="senha" placeholder="Password" required>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <input type="hidden" class="form-control"  name="codgusario" value="<?php echo isset($view_dados->codgusario) ? $view_dados->codgusario:''; ?>">
+              </div>
+
+            <div class="form-group col-sm-6">
+               
+              <label for="exampleInputFile">Foto</label>
+              <input type="file" id="exampleInputFile" name="foto" value="<?php echo isset($view_dados->foto) ? $view_dados->foto:''; ?>">
+
+
+            </div>
+            <div class="checkbox form-group col-sm-6">
+              <label>
+                <input type="checkbox"> Aceita
+              </label>
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="form-group col-sm-6"> 
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+
+  
+</div>
+<!-- </section>       -->
+</div>
+
+
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

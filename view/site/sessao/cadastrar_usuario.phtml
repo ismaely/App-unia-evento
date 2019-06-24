@@ -1,0 +1,129 @@
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div>
+    <!-- Content Header (Page header) -->
+    <section class="content-header container">
+      <h1>
+        Universidade Independente de Angola
+      </h1>
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="container">
+
+      <div class="row">
+       
+        <!-- /.col -->
+        <div class="col-md-10">
+          <div class="nav-tabs-custom container">
+            <ul class="nav nav-tabs">
+              
+              <li  class="active"><a href="#timeline" data-toggle="tab">Cadastro do Utilizaador</a></li>
+              
+            </ul>
+              
+            <div class="tab-content">
+            
+             
+              <div class="tab-pane active" id="">
+                  <form class="form-horizontal" action="salvarCadastro" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Nome completo</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="nome" id="inputName" placeholder="nome completo" required>
+                    </div>
+                    <label for="inputName" class="col-sm-2 control-label">Apelido</label>
+                     <div class="col-sm-4">
+                         <input type="text" class="form-control" name="apelido" id="inputName" placeholder="Apelido" required>
+                    </div>
+                  </div>
+                      
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Telefone</label>
+
+                    <div class="col-sm-4"> 
+                        <input type="text" class="form-control" name="telefone" id="inputEmail" placeholder="Telefone">
+                    </div>
+                    <label for="inputEmail" class="col-sm-2 control-label">Numero Estudante</label>
+                     <div class="col-sm-4">
+                         <input type="text" class="form-control" name="numeroEstudante" id="inputName" placeholder="NUmero de Estudate" required>
+                    </div>
+                  </div>
+                      
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Categoria</label>
+
+                    <div class="col-sm-4">
+                       <select name="nivel" autofocus="" class="form-control">
+                 
+                     <option value="1">Estudante</option>     
+                     <option value="2">Docente</option> 
+                       </select>
+                        
+                    </div>
+                    <label for="" class="col-sm-2 control-label">E-mail</label>
+                     <div class="col-sm-4">
+                         <input type="email" class="form-control" name="email" id="inputName" placeholder="email" required>
+                    </div>
+                  </div>
+                  
+                      <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Senha</label>
+
+                    <div class="col-sm-4"> 
+                        <input type="password" class="form-control" name="senha" id="inputEmail" placeholder="senha" required>
+                    </div>
+                    <label for="inputEmail" class="col-sm-2 control-label">Foto</label>
+                     <div class="col-sm-4">
+                         <input type="file" class="form-control" name="foto" id="inputName" placeholder="foto" >
+                    </div>
+                  
+                      <input type="hidden" class="form-control"  name="codgusario" >
+                      </div>
+                      
+                      
+                      
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-5">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> aceita o termo<a href="#"></a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group right">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-primary right">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ 
+
+  <!-- Control Sidebar -->
+  
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+<!--</body>-->

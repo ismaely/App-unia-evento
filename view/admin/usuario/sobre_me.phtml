@@ -1,0 +1,47 @@
+
+<section class="content"> 
+
+<div class="tab-pane" id="settings">
+                  <form class="form-horizontal" method="POST" action="sobreMeSalvar">
+                  
+                 <div class="form-group">
+                   <div class="col-sm-9">
+                            <input type="hidden" class="form-control input-sm" name="codgusuario" value="<?php echo $_SESSION['unia']->codgusario; ?>" >
+                      </div>
+                  </div>     
+                      <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">A sua Morada</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="morada" value="<?php echo isset($view_dados->morada) ? $view_dados->morada :'Municipio de Belas, Murro Bento I, Rua 21 de Janeiro'; ?>"id="inputName" placeholder="Morada actual">
+                    </div>
+                  </div>
+                      
+                      <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Universidade</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="universidade" value="<?php echo isset($view_dados->universidade) ? $view_dados->universidade :'UNIA - Universidade independente'; ?>"id="inputName" placeholder="nome da universidade">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Curso</label>
+
+                    <div class="col-sm-6"> 
+                        <input type="text" class="form-control" name="curso" value="<?php echo isset($view_dados->curso) ? $view_dados->curso :'Ciencia Universal'; ?>"id="inputEmail" placeholder="curso">
+                    </div>
+                  </div>
+                  
+                  
+                  
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                      <button type="submit" class="btn btn-primary  pull-right">Submit</button>
+                    </div>
+                  </div>
+                </form>
+        
+              </div>
+
+</section>

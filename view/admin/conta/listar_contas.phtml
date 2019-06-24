@@ -1,0 +1,98 @@
+
+
+<div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <?php 
+                   use controller\admin\contaController;
+                   $conta = new contaController();
+                if(count($view_list) > 0):
+                  
+    // var_dump($view_list);
+   //  die();
+                    ?>
+                <tr>
+                   <th>Estado da Conta</th>
+                  <th>Nome</th>
+                 
+                  <th>Telefone</th>
+                  <th>Nº de Estudante</th>
+                  <th>Email</th>
+                
+                   <th>Opção</th>
+                   <th>Opção</th>
+                </tr>
+                </thead>
+                <tbody>
+          
+           <?php foreach ($view_list as $li):  ?>
+            
+                  
+                <tr>
+                    <td> 
+                        
+                        
+                      <?php 
+                    
+                      
+                      $listarCadaConta = $conta->listarCadaConta($li->codgusario);
+                      
+                      if(isset($listarCadaConta->id_user)):
+                          
+                          if($listarCadaConta->estado == "Ativado"):
+                          ?>  
+                        
+                       <a class="btn btn-block btn-primary"> <?php echo $listarCadaConta->estado ;?></a>
+                      
+                        <?php 
+                        else:
+                        ?>
+                       
+                      <a class="btn btn-block btn-danger"> <?php echo $listarCadaConta->estado ;?></a>
+                       
+                       <?php 
+                     endif;
+                     
+                      else:
+                      ?>
+                  <a class="btn btn-block btn-info">Nunca foi Ativada</a>
+                      <?php 
+                      endif; 
+                      ?>
+                  
+                  </td>
+                    <td> <?php echo $li->nome ;?></td>
+                  <td> <?php echo $li->telefone ;?></td>
+                  <td>  <?php echo $li->numeroEstudante ;?></td>
+                  <td> <?php echo $li->email ;?> </td>
+                  
+                
+             <td> <a href="<?php echo APP_ADMIN;?>conta/ativar_conta/<?php echo $li->codgusario; ?>" class="btn btn-block btn-success">Ativar Conta</a></td>
+            <td> <a href="<?php echo APP_ADMIN;?>conta/desativar_conta/<?php echo $li->codgusario; ?>" class="btn btn-block btn-primary">Desativar</a></td>
+
+                </tr>
+        <?php endforeach; ?>
+         <?php else: ?>
+          
+             
+               <div class="alert alert-error alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Alerta...!</h4>
+                <?php echo "Não tem nenhum Usuario cadastrado pra ativar a sua conta"; ?>
+              </div> 
+              
+              
+        <?php  endif; ?>
+                </tbody>
+
+              </table>
+            </div>
+
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

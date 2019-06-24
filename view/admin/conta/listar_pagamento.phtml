@@ -1,0 +1,64 @@
+
+
+
+<div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <?php if(count($view_list) > 0):?>    
+                <tr>
+                 
+                  <th>Nome</th>
+                  <th>email</th>
+                  <th>Mes</th>
+                  <th>Numero do Borderom</th>
+                  <th>Meses Pago</th>
+                   <th>Valor Pago</th>
+                      <th>Actualizar</th>
+                      <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+            
+           <?php foreach ($view_list as $li):  ?>
+            
+       
+                <tr class="box box-green">
+                  <td> <?php echo $li->numeroEstudante;?></td>
+                   <td>  <?php echo $li->email ;?></td>
+                  <td>  <?php echo $li->mes ;?></td>
+                 
+                  <td>  <?php echo $li->borderom;?></td>
+                  <td> <?php echo $li->numero_de_meses;?></td>
+                  <td> <?php echo $li->valorPago;?></td>
+                  
+                  
+                    <td> <a href="<?php echo APP_ADMIN;?>conta/actualizar_pagamento/<?php echo $li->id; ?>" class="btn btn-block btn-success">Actualizar</a></td>
+                   <td> <a href="<?php echo APP_ADMIN;?>conta/eliminar_pagamento/<?php echo $li->id; ?>" class="btn btn-block btn-danger">Eliminar</a></td>
+
+                </tr>
+        <?php endforeach; ?>
+          <?php else: ?>
+          
+             
+               <div class="alert alert-error alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Alerta...!</h4>
+                <strong><?php echo "Não tem nenhum pagamento feito por usuarios........ "; ?> </strong> 
+              </div> 
+              
+              
+        <?php  endif; ?>
+                </tbody>
+
+              </table>
+            </div>
+
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+

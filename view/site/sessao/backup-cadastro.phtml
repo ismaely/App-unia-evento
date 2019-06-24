@@ -1,0 +1,86 @@
+
+
+<div class="register-box">
+<!--    <section class="content "> -->
+<div class="row">
+    <!-- left column -->
+    <div class="">
+         <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Cadastro Usuario</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+           <form role="form" action="salvarCadastro" method="POST">
+          <div class="box-body">
+ 
+              <div class="form-group has-feedback">
+                  <label for="exampleInputEmail1">Nome Completo</label>
+            <input type="text" class="form-control" name="nome" placeholder="Nome usuario" required>
+             <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+             <div class="form-group has-feedback">
+              <label for="exampleInputEmail1">Apelido </label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="apelido"placeholder="apelido" required>
+              <span class="glyphicon glyphicon-user form-control-feedback"></span>
+              </div>
+              </div>
+              <div class="form-group has-feedback">
+                   <label for="exampleInputEmail1">Telefone</label>
+        <input type="text" class="form-control" name="telefone" placeholder="Telefone" required>
+         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+
+         <div class="form-group has-feedback">
+             <label for="exampleInputName">Numero de Estudante</label>
+             
+        <input type="text" class="form-control"  name="numeroEstudante" placeholder="Numero de Estudante" required>
+                <span class="glyphicon glyphicon-road form-control-feedback"></span>
+             </div>
+            </div>
+            
+           <div class="form-group has-feedback">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email" required>
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+              <div class="form-group has-feedback">
+                  <label for="exampleInputEmail1">Senha</label>
+      <input type="password" class="form-control" name="senha" placeholder="Password" required>
+         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+              </div>
+              <input type="hidden" class="form-control"  name="nivel" value="1" >
+            <div class="form-group">
+              <label for="exampleInputFile">Foto</label>
+              <input type="file" id="exampleInputFile" name="foto">
+
+
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Aceita
+              </label>
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+</div>
+<!-- </section>       -->
+</div>
+
+
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

@@ -1,0 +1,115 @@
+
+<!-- zona do comentario e sugestao-->
+<?php 
+  use controller\admin\usuarioController;
+
+?>
+  <div >
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Perfil do Usuario
+      </h1>
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        
+         
+      <div class="row">
+       
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#activity" data-toggle="tab">Comentario</a></li>
+             
+            </ul>
+              
+            <div class="tab-content">
+              <div class="active tab-pane" id="activity">
+                <!-- Post -->
+                
+                <!-- /.post -->
+
+                <!-- Post -->
+                <div class="post clearfix">
+                    
+                  <?php if(count($view_listComentario) > 0):?>
+                <?php foreach ($view_listComentario as $li):  ?>  
+                  <div class="user-block"> 
+                    <img class="img-circle img-bordered-sm" src="././../../content/Publica/admin/dist/img/perfil.jpg" alt="User Image">
+                        <span class="username">
+                          <a href="#">
+                            <?php 
+                         
+                          $com = new usuarioController();
+                          $dados = $com->mostraNomes($li->id_user);
+                         // var_dump($dados);
+                          echo $dados->nome;?>
+                          </a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                    <span class="description"> </span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    <?php echo ( isset($li->msg) ? $li->msg : '' ); ?>  
+                    
+                  </p>
+                  <ul class="list-inline">
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> </a></li>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> </a>
+                    </li>
+                    <li class="pull-right">
+                   <a href="<?php echo APP_ADMIN;?>usuario/eliminar_sugestao/<?php echo $li->id; ?>" class="btn btn-block btn-danger">Eliminar</a></li>
+                  </ul>
+                  <hr>
+                  <?php endforeach; ?>
+                 <?php endif; ?>
+                  <p> </p>
+                  <form class="form-horizontal" action="comentario_sugestao" method="POST">
+                    <div class="form-group margin-bottom-none">
+                        <div class="col-sm-9">
+                            <input type="hidden" class="form-control input-sm" name="id_user" value="<?php echo $_SESSION['unia']->codgusario; ?>" >
+                      </div>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control input-sm" name="msg" placeholder="Response">
+                      </div>
+                      <div class="col-sm-3">
+                        <button type="submit" class="btn btn-success pull-right btn-block btn-sm">Send</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.post -->
+
+              </div>
+            
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+         
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ 
+
+  <!-- Control Sidebar -->
+ 
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+<!--</body>-->

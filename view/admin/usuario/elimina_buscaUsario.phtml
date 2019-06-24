@@ -1,0 +1,147 @@
+
+
+<div class="box-body ">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th></th> 
+                  <th>Numero de Estudante que deseja eliminar</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                    <th>Busca</th>
+                      <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="box box-danger">
+                <form action="elimina_buscaUsario" method="POST" >
+                   <div class="input-group">
+                  <td></td>
+                  <td>  <div class="col-xs-6">
+                     <input type="text" name="numeroEstudante" class="form-control" placeholder="Search...">   </td>
+                   </div>
+                  <td></td>
+                  <td> </td>
+                  <td></td>
+                    <td>
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-block btn-primary">Busca</button>
+
+                   </span>
+
+                     </td>
+                      <td> </td>
+                   </form>
+                </tr>
+
+                </tbody>
+
+                
+              </table>
+    <P> </P>
+        
+      <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Apelido</th>
+                  <th>Telefone</th>
+                  <th>Numero de Estudante</th>
+                  <th>Nivel</th>
+                  <th>Email</th>
+                 
+                  <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody >
+            
+                
+              <!--- ###################################################################################### -->  
+                
+            <?php if(isset($view_list) && count($view_list) == 1):?>
+       
+                
+                <tr class="box box-danger">
+                    <td> <?php echo isset($view_list->nome) ? $view_list->nome :"" ;?></td>
+                  <td>  <?php echo  isset($view_list->apelido ) ? $view_list->apelido: '';?></td>
+                  <td> <?php echo isset($view_list->telefone) ? $view_list->telefone:'' ;?></td>
+                  <td>  <?php echo isset($view_list->numeroEstudante) ? $view_list->numeroEstudante :'';?></td>
+                  <td> <?php 
+                  if($view_list->nivel == 1) echo 'Estudante -> UNIA';
+          
+                    if($view_list->nivel == 2) echo 'Docente -> UNIA'; 
+          
+                     if($view_list->nivel == 3) echo 'Admin -> UNIA';
+                  
+                  ?></td>
+                  <td> <?php echo isset($view_list->email) ? $view_list->email : '';?> </td>
+                
+              
+                  <td> <a href="<?php echo APP_ADMIN;?>usuario/elimina_buscaUsario/<?php echo isset($view_list->codgusario) ? $view_list->codgusario: ''; ?>" class="btn btn-block btn-danger">Eliminar</a></td>
+
+                </tr>
+                
+          <?php endif; ?>    
+                
+                </tbody>
+
+              </table>
+    <P> </P>
+    
+        <!--  ######################  Mensagem de sucesso e erro-->
+    
+       <div >
+          <div class="box box-default">
+            <div class="box-header with-border">
+            
+            </div>
+            <!-- /.box-header -->
+            <?php 
+               if(isset($view_aviso)){ 
+                   var_dump($view_aviso);
+                   die;
+                   ?>
+            <div class="box-body">
+                
+                 <?php  if($view_aviso['sucess']==TRUE) {?>
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                <?php echo '  USARIO ELIMINADO COM SUCESSO'; ?>
+              </div>
+                <?php  } ?>
+
+                
+                <?php  if(!$view_aviso['sucess']) {?>
+              <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                  <?php echo '  ERRO NÃO FOI POSSIVEL ELIMINAR, O USARIO NÃO EXISTE'; ?>
+              </div>
+                <?php }?>
+<!--              <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+                Warning alert preview. This alert is dismissable.
+              </div>-->
+               
+
+            </div>
+            
+            <?php  }?>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+            </div>
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+  
+  

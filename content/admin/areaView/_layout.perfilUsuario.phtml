@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+ <?php
+     
+    ?>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title><?php echo $this->title; ?></title>
+<!--  <base href="<?php echo APP_ROOT;?>">-->
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+ <!-- css para pagina que pegam o estilo neste endereço  ././../../ -->
+  <link rel="stylesheet" href="././../../content/Publica/admin/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="././../../content/Publica/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="././../../content/Publica/admin/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" href="././../../content/Publica/admin/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="././../../content/Publica/admin/plugins/iCheck/flat/blue.css">
+  
+  <!-- css para outras paginas que vao pegar o css neste enderço -->
+  <link rel="stylesheet" href="./../../../content/Publica/admin/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./../../../content/Publica/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="./../../../content/Publica/admin/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" href="./../../../content/Publica/admin/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="./../../../content/Publica/admin/plugins/iCheck/flat/blue.css">
+  
+  
+  <link rel="shortcut icon" href="././../../fotos/logo.ico">
+</head>
+<!--  -->
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="<?php echo APP_ADMIN;?>home/perfilUsuario" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>Admin-UNIA</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>
+          <?php 
+          if($_SESSION['unia']->nivel == 1) echo 'Estudante -> UNIA';
+          
+          if($_SESSION['unia']->nivel == 2) echo 'Docente -> UNIA'; 
+          
+          if($_SESSION['unia']->nivel == 3) echo 'Admin -> UNIA';
+        
+          ?></b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+         
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning"><?php echo "";?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Notificação</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> <!-- zona da notificação basta escrever algo -->
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+          <!-- Tasks: style can be found in dropdown.less -->
+
+          <!-- User Account: style can be found in dropdown.less     echo  ("././../../fotos/").$_SESSION['unia']->foto ;-->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="<?php 
+                if(!empty($_SESSION['unia']->foto)){
+                  
+                  echo  ("././../../fotos/").$_SESSION['unia']->foto ;
+                 
+                }else {
+                         
+                    echo  ("././../../fotos/perfil.jpg") ;
+                    
+                } ?>
+                      " class="user-image" alt="foto">
+<!--              <img src="./../../../content/Publica/admin/dist/img/perfil.jpg" class="user-image" alt="">-->
+              <span class="hidden-xs"><?php echo $_SESSION['unia']->nome;  ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                  <img src="<?php 
+                if(!empty($_SESSION['unia']->foto)){
+                  
+                  echo  ("././../../fotos/").$_SESSION['unia']->foto ;
+                 
+                }else {
+                         
+                    echo  ("././../../fotos/perfil.jpg") ;
+                    
+                } ?>" 
+                       
+                       class="img-circle" alt="sua foto">
+
+                <p>
+                 <?php echo $_SESSION['unia']->nome; ?>
+                  <small>  <?php echo $_SESSION['unia']->numeroEstudante; ?></small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer"><?php echo (isset($_SESSION['unia']->foto) ? '' : ''); ?>
+                <div class="pull-left">
+                  <a href="<?php echo APP_ADMIN;?>usuario/detalhe_usuario" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                    <a href="<?php echo APP_ADMIN;?>sessao/logout" class="btn btn-default btn-flat">Sair</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="center">
+            <img src="<?php echo (isset($view_dados->nome) ? './../../../' : '././../../' ).'content/Publica/admin/dist/img/unia.png';?> "  title="UNIA <-&-> UNIA" class="img-circle img-responsive " alt="User Image">
+        </div>
+<!--        <div class="pull-left info">
+          <p><?php echo $_SESSION['unia']->apelido;  ?></p>
+
+        </div>-->
+      </div>
+      <!-- search form
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>-->
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header"></li>
+        <li class="treeview active">
+          <a  href="<?php echo APP_ADMIN;?>home/perfilUsuario">
+              <i class="fa fa-dashboard"></i> <span class="show">----------- MENU ---------</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+
+        </li>
+        <?php  if($_SESSION['unia']->nivel == 3):?>
+        <li class="treeview ">
+          <a href="#">
+            <i class="fa fa-circle-o"></i>
+            <span>Cadastro</span>
+
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo APP_ADMIN;?>usuario/cadastrar_usuario"><i class="fa fa-circle-o"></i> Cadastrar Usuario</a></li>
+            <li ><a href="<?php echo APP_ADMIN;?>usuario/listar_usuario"><i class="fa fa-circle-o"></i> Listar Usuario</a></li>
+            <li><a href="<?php echo APP_ADMIN;?>usuario/consultar_usuario"><i class="fa fa-circle-o"></i> Consultar Usario</a></li>
+            <li><a href="<?php echo APP_ADMIN;?>usuario/elimina_buscaUsario"><i class="fa fa-circle-o"></i> Eliminar Usario</a></li>
+          </ul>
+        </li>
+        <?php endif; ?>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-circle-o"></i>
+            <span>Video Aula & Chat</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <?php  
+              if($_SESSION['unia']->nivel !=1):
+              
+              ?>
+              
+                <li><a href="<?php echo APP_ADMIN;?>videoChate/registar_video"><i class="fa fa-circle-o"></i> Registar Video</a></li>
+                <?php    
+              endif;
+              
+              
+              ?>
+           <!-- <li><a href="<?php echo APP_ADMIN;?>videoChate/gravar"><i class="fa fa-circle-o"></i> Gravar Video</a></li> -->
+            <li><a href="<?php echo APP_ADMIN;?>videoChate/conferencia"><i class="fa fa-circle-o"></i> Video Conferencia</a></li>
+            <li><a href="<?php echo APP_ADMIN;?>videoChate/listar_video"><i class="fa fa-circle-o"></i>Listar Video</a></li>
+            
+
+          </ul>
+        </li>
+         <?php  
+              if($_SESSION['unia']->nivel ==3):
+              
+              ?>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-circle-o"></i>
+            <span>Contas & Pagamentos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+             
+             
+            <li><a href="<?php echo APP_ADMIN;?>conta/listar_contas"><i class="fa fa-circle-o"></i>Ativar & Listar Conta </a></li>
+           
+             <li><a href="<?php echo APP_ADMIN;?>conta/registar_pagamento"><i class="fa fa-circle-o"></i>Registar Pagamentos</a></li>
+            <li><a href="<?php echo APP_ADMIN;?>conta/listar_pagamento"><i class="fa fa-circle-o"></i> Listar Pagamentos</a></li>
+
+
+          </ul>
+        </li>
+        <?php endif;?>
+         
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-circle-o"></i>
+            <span>Arquivos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <?php  
+              if($_SESSION['unia']->nivel ==3 ||$_SESSION['unia']->nivel ==2):
+              
+              ?>
+             
+            <li><a href="<?php echo APP_ADMIN;?>arquivo/cadastrar"><i class="fa fa-circle-o"></i>Cadastrar Arquivo</a></li>
+           
+              <?php endif;?>
+            
+             <li><a href="<?php echo APP_ADMIN;?>arquivo/listar"><i class="fa fa-circle-o"></i>Listar Arquivo</a></li>
+            
+          </ul>
+        </li>
+        
+        
+        
+         <li class="">
+          <a href="<?php echo APP_ADMIN;?>usuario/comentario_sugestao">
+            <i class="fa fa-edit"></i> <span>Comentario & sugestão</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        
+        </li>
+
+
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- ===============================================  =====================================================-->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">  </p></h3>
+                                    
+
+        </div>
+        <div class="box-body ">
+            
+            <?php 
+            
+            
+            $this->render(); ?>
+            
+            
+            
+        </div>
+
+      </div>
+      <!-- /.box -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Versão</b> 0.0.1
+    </div>
+    <strong>Copyright &copy; 2016 <a href="">Sofil web</a>.</strong> Direito Reservado
+
+  </footer>
+
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- js para as paginas do primeiro enderço  -->
+<script src="././../../content/Publica/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="././../../content/Publica/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="././../../content/Publica/admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="././../../content/Publica/admin/plugins/fastclick/fastclick.js"></script>
+<script src="././../../content/Publica/admin/dist/js/app.min.js"></script>
+<script src="././../../content/Publica/admin/dist/js/demo.js"></script>
+
+<!-- ################# js para as outras pagaginas que pegam em outro endereço -->
+<script src="./../../../content/Publica/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="./../../../content/Publica/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="./../../../content/Publica/admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="./../../../content/Publica/admin/plugins/fastclick/fastclick.js"></script>
+<script src="./../../../content/Publica/admin/dist/js/app.min.js"></script>
+<script src="./../../../content/Publica/admin/dist/js/demo.js"></script>
+
+
+</body>
+</html>

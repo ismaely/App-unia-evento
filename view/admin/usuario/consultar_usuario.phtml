@@ -1,0 +1,126 @@
+
+<div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Numero de Estudante</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                    <th>Busca</th>
+                      <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="box box-primary">
+                <form action="consultar_usuario" method="POST" >
+                   <div class="input-group">
+                  <td></td>
+                  <td>  <div class="col-xs-6">
+                     <input type="text" name="numeroEstudante" class="form-control" placeholder="Search...">   </td>
+                   </div>
+                  <td></td>
+                  <td> </td>
+                  <td></td>
+                    <td>
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-block btn-primary">Busca</button>
+
+                   </span>
+
+                     </td>
+                      <td> </td>
+                   </form>
+                </tr>
+
+                </tbody>
+
+                
+              </table>
+    <P> </P>
+        
+      <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Apelido</th>
+                  <th>Telefone</th>
+                  <th>Numero de Estudante</th>
+                  <th>Nivel</th>
+                  <th>Email</th>
+                  <th>Actualizar</th>
+                  <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+            <?php if(isset($view_listBusca) && count($view_listBusca) > 1):?>
+        <?php foreach ($view_listBusca as $li): 
+           
+               ?>
+            
+              
+                <tr>
+                    <td> <?php echo isset($li->nome) ? $li->nome :'' ;?></td>
+                  <td>  <?php echo  isset($li->apelido ) ? $li->apelido: '';?></td>
+                  <td> <?php echo isset($li->telefone) ? $li->telefone:'' ;?></td>
+                  <td>  <?php echo isset($li->numeroEstudante) ? $li->numeroEstudante :'';?></td>
+                  <td> <?php 
+                  
+                  if($li->nivel == 1) echo 'Estudante -> UNIA';
+          
+                    if($li->nivel == 2) echo 'Docente -> UNIA'; 
+          
+                     if($li->nivel == 3) echo 'Admin -> UNIA';
+                 
+                  ?></td>
+                  <td> <?php echo isset($li->email) ? $li->email : '';?> </td>
+                
+                  <td> <a href="<?php echo APP_ADMIN;?>usuario/actualizar_usuario/<?php echo isset($li->codgusario) ? $li->codgusario : NULL ; ?>" class="btn btn-block btn-success">Actualizar</a></td>
+                  <td> <a href="<?php echo APP_ADMIN;?>usuario/eliminar_usuario/<?php echo isset($li->codgusario) ? $li->codgusario: ''; ?>" class="btn btn-block btn-danger">Eliminar</a></td>
+
+                </tr>
+        <?php endforeach; ?>
+          <?php endif; ?>
+                
+              <!--- ###################################################################################### -->  
+                
+            <?php if(isset($view_listBusca) && count($view_listBusca) == 1):?>
+       
+                
+                <tr>
+                    <td> <?php echo isset($view_listBusca->nome) ? $view_listBusca->nome :"" ;?></td>
+                  <td>  <?php echo  isset($view_listBusca->apelido ) ? $view_listBusca->apelido: '';?></td>
+                  <td> <?php echo isset($view_listBusca->telefone) ? $view_listBusca->telefone:'' ;?></td>
+                  <td>  <?php echo isset($view_listBusca->numeroEstudante) ? $view_listBusca->numeroEstudante :'';?></td>
+                  <td> <?php 
+                   if($view_listBusca->nivel == 1) echo 'Estudante -> UNIA';
+          
+                    if($view_listBusca->nivel == 2) echo 'Docente -> UNIA'; 
+          
+                     if($view_listBusca->nivel == 3) echo 'Admin -> UNIA';
+                  
+                  ?></td>
+                  <td> <?php echo isset($view_listBusca->email) ? $view_listBusca->email : '';?> </td>
+                
+                  <td> <a href="<?php echo APP_ADMIN;?>usuario/actualizar_usuario/<?php echo isset($view_listBusca->codgusario) ? $view_listBusca->codgusario : NULL ; ?>" class="btn btn-block btn-success">Actualizar</a></td>
+                  <td> <a href="<?php echo APP_ADMIN;?>usuario/eliminar_usuario/<?php echo isset($view_listBusca->codgusario) ? $view_listBusca->codgusario: ''; ?>" class="btn btn-block btn-danger">Eliminar</a></td>
+
+                </tr>
+                
+          <?php endif; ?>    
+                
+                </tbody>
+
+              </table>
+    
+    
+            </div>
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

@@ -1,0 +1,66 @@
+
+<?php 
+use app_controllerModel\videoChate\Api_videoChate;
+use model\video\Video;
+$vi = new Video;
+$api = new Api_videoChate();
+        
+$vi->id = $_SESSION['visualiza'];
+
+ 
+ $res=$api->Listar_video($vi);
+        
+?>
+<div class="box-body">
+    <div class="row"> 
+              <div class="col-md-12">
+              <!-- USERS LIST   ../../../videos/-->
+              <div class="">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Vizualizando 
+                        <?php 
+                    
+                        echo $res->arquivo;
+                    
+                          ?>
+                    
+                    </h3>
+
+                  <div class="box-tools pull-right">
+                    
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="row"> 
+                <div class="box-body no-padding ">
+                    
+                   <video controls="" class="col-md-10"> 
+                       <source src ="../../videos/<?php echo $res->arquivo; ?>"
+                       
+                      </video> 
+              
+                  </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center">
+                  <a href="javascript:void(0)" class="uppercase">Visto </a>
+                </div>
+                <!-- /.box-footer -->
+              </div>
+              <!--/.box -->
+            </div>
+               
+                
+            </div>
+  </div>
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */

@@ -1,0 +1,70 @@
+
+<div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <?php if(count($view_listar) > 0):
+  
+                    ?>    
+                <tr>
+                  <th>Nome</th>
+                  <th>Area de Formação</th>
+                  <th>Descrição</th>
+                  <th>Arquivo</th>
+                 
+                  <th>Visualizar</th>
+                    <th></th>
+                      <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+            
+           <?php foreach ($view_listar as $li):  ?>
+             
+       
+                <tr class="box box-primary">
+                    <td> <?php echo $li->nome;?></td>
+                  <td>  <?php echo $li->area_formacao ;?></td>
+                 
+                  <td>  <?php echo $li->descricao ;?></td>
+                  <td> <?php echo $li->ficheiro;?></td>
+                  
+                  
+                  <td> <a  target="_blank" href="<?php echo APP_ADMIN;?>arquivo/visualizar/<?php echo $li->id; ?>" class="btn btn-block btn-primary">Vizualizar</a></td>
+                   
+                   <?php  
+                        if($_SESSION['unia']->nivel !=1):
+              
+                        ?>
+                 <td> <!--<a href="<?php echo APP_ADMIN;?>videoChate/actualizar_video/<?php echo $li->id; ?>" class="btn btn-block btn-success">Actualizar</a>--></td>
+                   
+                    
+                    <td> <a href="<?php echo APP_ADMIN;?>arquivo/eliminar/<?php echo $li->id; ?>" class="btn btn-block btn-danger">Eliminar</a></td>
+
+                     <?php endif; ?>
+                </tr>
+        <?php endforeach; ?>
+          <?php else: ?>
+          
+             
+               <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Alerta...!</h4>
+                <?php echo "Não tem nenhum Arquivo cadastrado"; ?>
+              </div> 
+              
+              
+        <?php  endif; ?>
+                </tbody>
+
+              </table>
+            </div>
+
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+

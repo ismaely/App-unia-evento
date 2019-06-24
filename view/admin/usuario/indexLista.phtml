@@ -1,0 +1,41 @@
+
+<a href="formCadastro"> cadastra utilizador</a>
+<table>
+    <tbody>
+        <?php if(count($view_list) > 0):?>
+        <?php foreach ($view_list as $li): 
+            
+       ?>
+        <tr>
+            <td> <?php echo $li->codgusario; ?></td>
+            <td> <?php echo $li->nome; ?></td>
+            <td> <?php echo $li->email; ?></td>
+            <td> <?php echo $li->senha; ?></td>
+            <td> 
+                <a href="formCadastro/<?php echo $li->codgusario; ?>"> Editar</a>
+                <a href="usuario/deletar/<?php echo $li->codgusario; ?>/<?php echo $li->nome; ?>"> Eliminar</a>
+             </td>
+        </tr>
+        
+        
+        
+        <?php endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+    
+    
+</table>
+    
+
+
+
+
+<?php
+
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

@@ -1,0 +1,93 @@
+
+
+<div class="box-body">
+    <div class="row"> 
+              <div class="col-md-6">
+              <!-- USERS LIST -->
+              <div class="">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Conferencia com os alunos</h3>
+
+                  <div class="box-tools pull-right">
+                    
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                  </div>              
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+            
+                      
+                
+                    <video autoplay controls="" > </video> 
+                   
+                
+                    <input type="button" id="stopbt" value="stop"/>
+                    
+                    <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Alerta...!</h4>
+                <span id="resultado"></span>
+              </div> 
+                    <script type="text/javascript">
+                     window.URl = window.URL || window.webkiURl;
+                     navigator.getUserMedia =
+                         navigator.getUserMedia || navigator.webkitGetUserMedia || 
+                         navigator.mozGetUserMedia || navigator.msGetUserMedia;
+                 var video = document.querySelector('video');
+                  
+                 var cameraStream = '';
+                 if(navigator.getUserMedia){
+                     
+                     navigator.getUserMedia(
+                             {
+                         audio: true, video: true 
+                           },
+                           function(stream){
+                               cameraStream = stream;
+                               video.src = window.URL.createObjectURL(stream);
+                           },
+                           function(){
+                              // document.writeln("")
+                              
+                              document.getElementById('resultado').innerHTML = 'problema com seu hardware ou seja na sua camera...';
+                           }
+                            
+                );
+                 }
+                 else{
+                     
+                    document.getElementById('resultado').innerHTML = "caputurar a camara para conferencia, nao esta a suportar"
+                     
+                 }
+                      document.querySelector('#stopbt').addEventListener(
+                              'click', function(e){
+                                  video.src='';
+                                  cameraStream.stop();
+                              });
+                             
+                    
+                    </script>
+                  
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center">
+                  <a href="javascript:void(0)" class="uppercase"> online...</a>
+                </div>
+                <!-- /.box-footer -->
+              </div>
+              <!--/.box -->
+            </div>
+               
+                
+            </div>
+  </div>
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */

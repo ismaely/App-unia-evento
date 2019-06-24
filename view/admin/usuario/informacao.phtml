@@ -1,0 +1,273 @@
+
+<?php  $pessoa =$_SESSION['unia'];?>
+
+  <div >
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+          Informa&ccedil;&atilde;o Pesoal do Estudante
+      </h1>
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+<!--        <div class="col-md-3">
+         
+           Profile Image 
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="./../../../content/Publica/admin/dist/img/perfil.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center"><?php echo ''.$pessoa ->nome;?></h3>
+
+              <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">sobre Me</h3>
+            </div>
+             /.box-header 
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Universidade</strong>
+
+              <p class="text-muted">
+                <?php echo (isset($view_dados->universidade) ? $view_dados->universidade : 'UNIA - Universidade independente' );?>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Morada</strong>
+
+              <p class="text-muted"> <?php echo (isset($view_dados->morada) ? $view_dados->morada : 'Municipio de Belas, Murro Bento I, Rua 21 de Janeiro,  ' ); ?>
+              </p>
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Cursos</strong>
+
+              <p> <?php echo (isset($view_dados->curso) ? $view_dados->curso : 'Ciencia Universal ' ); ?> </p>
+              
+            </div>
+            
+            <a  href="sobre_me" class="btn btn-danger btn-primary">Editar Informação</a>
+          </div>
+              <p>
+              </p>   
+          
+            </div>
+             /.box-body 
+          </div>
+          
+        </div>-->
+          
+          
+        <!-- /.col -->
+        <div class="col-md-12">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              
+              <li  class="active"><a href="#timeline" data-toggle="tab">Estado Pessoal</a></li>
+              <li><a href="#settings" data-toggle="tab">Alterar Palavra Password do Cliente</a></li>
+            </ul>
+              
+            <div class="tab-content">
+            
+              <!-- /.tab-pane -->
+              <div class="active tab-pane" id="timeline">
+                <!-- The timeline -->
+                <ul class="timeline timeline-inverse">
+                  <!-- timeline time label -->
+                  <li class="time-label">
+                        <span class="bg-red">
+                          <?php echo 'Data da criação- 2017';?>
+                        </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li  >
+                    <i class="fa fa-envelope bg-blue"></i>
+                   <!-- &&&&&&&&&&&&&&&&&&&&&& 1 &&&&&&&&&&&&&&&&&&&&&&-->
+                    <div class="timeline-item col-sm-5">
+                      <span class="time"><i class="fa fa-clock-o"></i> </span>
+
+                      <h3 class="timeline-header"><a href="#">Dados Pessoas:</a> </h3>
+
+                      <div class="timeline-body">
+                        Nome Completo:  <strong>  <?php echo (isset($view_dados->nome) ? $view_dados->nome : '' );?> </strong><br>
+                        
+                          SobreNome:  <strong><?php echo (isset($view_dados->apelido) ? $view_dados->apelido : 'Estudante Unia' );?></strong> <br>
+                         
+                         Telefone:  <strong><?php echo (isset($view_dados->telefone) ? $view_dados->telefone : '928-272-213' );?></strong> <br>
+                          Morada:  <strong><?php echo (isset($view_dados->morada) ? $view_dados->morada : 'Morro Bento, Municipio de Belas' );?></strong><br>
+                           Email:  <strong><?php echo (isset($view_dados->email) ? $view_dados->email : '' );?></strong>
+                          
+                           
+                       </div>
+                      
+                    </div>
+                    
+                      <!-- &&&&&&&&&&&&&&&&&&&&&& 2 &&&&&&&&&&&&&&&&&&&&&&-->
+                    <div class="timeline-item col-sm-5 ">
+                        
+                      <span class="time"><i class="fa fa-clock-o"></i> </span>
+
+                      <h3 class="timeline-header"><a href="#">Dados Academico:</a> </h3>
+
+                      <div class="timeline-body">
+                        Numero do Estudante:  <strong>  <?php echo (isset($view_dados->numeroEstudante) ? $view_dados->numeroEstudante : '----' );?> </strong> <br>
+                        <p> 
+                        Universidade:  <strong><?php echo (isset($view_dados->universidade) ? $view_dados->universidade : ' U.N.I.A' );?></strong><br>
+                         </p>
+                         Curso:  <strong><?php echo (isset($view_dados->curso) ? $view_dados->curso : '----' );?></strong> <br>
+                          <p> 
+                          
+                          </p>
+                       </div>
+                     
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+                    <!-- ####################### 1 ####################-->
+                  <li >
+                    <i class="fa fa-user bg-aqua"></i>
+
+                    <div class="timeline-item col-sm-5 ">
+                      <span class="time"><i class="fa fa-clock-o"></i> </span>
+
+                      <h3 class="timeline-header border"><a href="#">Dados da Conta:</a> 
+                      </h3>
+                      <div class="timeline-body">
+                       
+                        <p> 
+                        Categoria: <strong>
+                             <?php 
+                           
+                             if($view_dados->nivel == 3){
+                               echo 'Administrador';
+                               }
+                            elseif ($view_dados->nivel == 2) {
+                             echo 'Docente';
+                            }
+                             elseif ($view_dados->nivel == 1) {
+                                  echo 'Estudante';
+                            }
+                        ?> </strong>
+                         </p>
+                         
+                       </div>
+                    </div>
+                    
+                    <!-- ####################### 2 ####################-->
+                    <div class="timeline-item col-sm-5">
+                      <span class="time"><i class="fa fa-clock-o"></i> </span>
+
+                      <h3 class="timeline-header border"><a href="#">Dados de Pagamento por Curso: </a> 
+                      </h3>
+                      <div class="timeline-body">
+                        Pagamento:<strong> <?php echo (isset($view_dados->pago) ? $view_dados->pago : '----' );?> </strong>
+                        
+                         
+                       </div>
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-comments bg-yellow"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
+
+                      <h3 class="timeline-header"><a href="#">Enviar Uma Msg Pra Este Cliente: </a> </h3>
+
+                      <div class="timeline-body">
+                        <div class="post clearfix">
+
+                  <p>
+                      <?php echo 'Podes Mandar uma menssagem de notificação pra este estudante  '; ?>
+                                  
+                              
+                                
+                  </p>
+              
+                  <form class="form-horizontal">
+                    <div class="form-group margin-bottom-none">
+                      <div class="col-sm-9">
+                          <input class="form-control input-sm"  name="frase" placeholder="Response">
+                      </div>
+                      <div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Send</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                      </div>
+                     
+                    </div>
+                  </li>
+                  
+                  <li>
+                       <i class="fa fa-clock-o bg-gray"></i>
+                      <div class="timeline-item">  
+                       
+                          <div class="timeline-footer">
+                             <a href="#" class="btn btn-danger btn-sm"><b>Desativar a Conta</b></a>  
+                          </div>
+                       
+                      </div>
+                   
+                  </li>
+                </ul>
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="settings">
+                  <form class="form-horizontal" method="POST" action="alterar_senha">
+                  
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Nova Senha</label>
+
+                    <div class="col-sm-6"> 
+                      <input type="password" class="form-control" name="senha_nova1" id="inputEmail" placeholder="senha Nova">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Confirma Novamente</label>
+
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control" name="senha" id="inputName" placeholder="senha Nova">
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> aceita o termo<a href="#"></a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  
+  <div class="control-sidebar-bg"></div>
